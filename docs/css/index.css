@@ -1,0 +1,20 @@
+#code_wrapper {
+  /* background-color: #333; */
+}
+
+#code_wrapper .CodeMirror {
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+
+#code_wrapper .CodeMirror-gutters {
+  background-color: #d0d0d0;
+}
+#code2_wrapper .CodeMirror {
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+
+#code2_wrapper .CodeMirror-gutters {
+  background-color: #d0d0d0;
+}
