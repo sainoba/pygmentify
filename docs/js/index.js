@@ -4,18 +4,20 @@ $(document).ready(function() {
     mode: "application/xml",
     styleActiveLine: true,
     lineNumbers: true,
-    lineWrapping: false
+    lineWrapping: false,
+    maxScanLines: -1,
+    maxHighlightLength: -1
   });
 
   var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
     mode: "application/xml",
     styleActiveLine: true,
     lineNumbers: true,
-    lineWrapping: false
+    lineWrapping: true
   });
 
   $("#pygmentify-btn").on("click", function() {
-    //   const code = $("#code").val();
+    $("#pygmentify-btn").prop("disabled", true);
     const code = editor.getValue();
     const language = $("#language-select").val();
     const data = {
@@ -33,6 +35,7 @@ $(document).ready(function() {
       }
     )
       .then(function(response) {
+        $("#pygmentify-btn").prop("disabled", false);
         if (!response.ok) {
           console.log("Response:", response.json());
           throw Error(response.statusText);
@@ -43,6 +46,7 @@ $(document).ready(function() {
         editor2.setValue(data["code"]);
       })
       .catch(function(error) {
+        $("#pygmentify-btn").prop("disabled", false);
         console.log(error);
       });
 
@@ -50,7 +54,10 @@ $(document).ready(function() {
   });
 
   $.each(pygments_languages, function(idx, obj) {
-    $("#language-select").append($(new Option(obj["name"], obj["value"])));
+    const selected = obj["value"] === "python";
+    $("#language-select").append(
+      $(new Option(obj["name"], obj["value"], selected, selected))
+    );
   });
   $("#language-select").selectpicker();
 });

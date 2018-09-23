@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My pygments</title>
+  <title>Pygmentify</title>
+  <link rel="shortcut icon" href="./img/cbt-234342/cbt-32.png" />
+
   <link rel="stylesheet" href="./js/codemirror-5.40.2/codemirror.css">
 
   <!--     Fonts and icons     -->
@@ -19,7 +22,7 @@
 </head>
 
 <body class="profile-page sidebar-collapse">
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('./js/material-kit-html-v2.0.4/assets/img/profile_city.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('./img/ribbons.jpg')">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -38,7 +41,7 @@
               </div>
               <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                  <li class="dropdown nav-item">
+                  <!-- <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <i class="material-icons">apps</i> Components
                     </a>
@@ -51,13 +54,13 @@
                         <i class="material-icons">content_paste</i> Documentation
                       </a>
                     </div>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                      <i class="material-icons">cloud_download</i> Download
+                    <a class="nav-link" href="#faq" onclick="scrollToDownload()">
+                      <i class="material-icons">help</i> FAQ
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim"
                       target="_blank" data-original-title="Follow us on Twitter">
                       <i class="fa fa-twitter"></i>
@@ -74,7 +77,7 @@
                       target="_blank" data-original-title="Follow us on Instagram">
                       <i class="fa fa-instagram"></i>
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -92,44 +95,92 @@
   </div>
   <div class="main main-raised">
     <div class="container">
-      <div class="section text-center">
+      <div class="section">
         <div class="row">
-          <div class="col-12 text-left">
+          <div class="col-12">
+            <p>
+              <h3>Welcome</h3>
+              This is the home of Pygmentify. It is a non-official GUI for Pygments, a generic syntax highlighter.
+              Learn more about Pygments here:
+              <a href="http://pygments.org/">Official Website</a>.
+            </p>
+            <div class="text-info">Step 1: Replace with your code</div>
             <div id="code_wrapper">
-              <textarea id="code" name="code">print("This is an example")</textarea>
+              <textarea id="code" name="code">print("This is an example")
+#  It's written in python, buy you can use Pygmentify for almost any programing languange
+class Dummy:
+  pass
+def dummy_method(thing):
+  print("hi!")
+</textarea>
             </div>
+            <hr>
           </div>
-          <div class="col-12 text-left">
-            <button id="pygmentify-btn" class="btn btn-primary btn-round">
+          <div class="col-12 text-info">Step 2: Select the language your code is written on, and click "Pygmentify"</div>
+          <div class="col-5">
+            <select id="language-select" class="form-control" data-style="btn-primary" data-live-search="true"
+              data-width="auto">
+            </select>
+          </div>
+          <div class="col-7">
+            <button id="pygmentify-btn" class="btn btn-primary btn-round btn-block">
               <i class="material-icons">brush</i> Pygmentify
               <div class="ripple-container"></div>
             </button>
-            <div style="display: inline-block;">
-              <div class="row">
-                <div class="col-12">
-                  <label>Languages</label>
-                </div>
-                <div class="col-12">
-                  <select id="language-select" class="form-control" data-style="btn-primary" data-live-search="true" data-width="auto">
-                  </select>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="col-12 text-left">
+          <div class="col-12">
+            <hr>
+            <div class="text-info">Step 3: Copy your formmated code</div>
             <div id="code2_wrapper">
               <textarea id="code2" name="code2"></textarea>
             </div>
           </div>
         </div>
-        <div class="col-md-8 ml-auto mr-auto">
-          <h2 class="title">Let&apos;s talk product</h2>
-          <h5 class="description">This is the paragraph where you can write more details about your product. Keep you
-            user engaged by providing meaningful information. Remember that by this time, the user is curious,
-            otherwise he wouldn&apos;t scroll to get here. Add a button if you want the user to see more.</h5>
-        </div>
       </div>
-      <div class="features">
+      <div class="section">
+        <h2 id="faq" class="title">FAQ</h2>
+        <ul>
+          <li>
+            <h6>Can I use my own lexers and formatters?</h6>
+            I'm not a big fan of running untrusted 3rd party code, so I won't probably add this feature.
+          </li>
+          <li>
+            <h6>When is <big>X</big> going to be implemented?</h6>
+            I'll be working on adding as much features of Pygments as I can, so be patient ;)
+          </li>
+          <li>
+            <h6>How much can I use Pygmentify?</h6>
+            Pygmentify is intented for personal use only. The page just stops working if
+            it reaches the free-tier limit of the AWS for the month. For heavy use, contact me.
+          </li>
+        </ul>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="features">
         <div class="row">
           <div class="col-md-4">
             <div class="info">
@@ -162,9 +213,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
-    <div class="section text-center">
+    <!-- <div class="section">
       <h2 class="title">Here is our team</h2>
       <div class="team">
         <div class="row">
@@ -238,8 +289,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="section section-contacts">
+    </div> -->
+    <!-- <div class="section section-contacts">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <h2 class="text-center title">Work with us</h2>
@@ -275,33 +326,33 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   </div>
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
         <ul>
-          <li>
+          <!-- <li>
             <a href="https://www.creative-tim.com">
               Creative Tim
             </a>
-          </li>
+          </li> -->
           <li>
-            <a href="https://creative-tim.com/presentation">
-              About Us
+            <a href="https://marconila.com/about">
+              About Me
             </a>
           </li>
           <li>
-            <a href="http://blog.creative-tim.com">
+            <a href="https://marconila.com/blog">
               Blog
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="https://www.creative-tim.com/license">
               Licenses
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <div class="copyright float-right">
@@ -309,7 +360,7 @@
         <script>
           document.write(new Date().getFullYear())
         </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://marconila.com" target="_blank">Marco Nila</a> for a better web.
+        <a href="https://marconila.com" target="_blank">Marco Nila</a>.
       </div>
     </div>
   </footer>
