@@ -27,7 +27,7 @@ $(document).ready(function() {
     };
     console.log("language", language, JSON.stringify(data));
     fetch(
-      "https://labmda.pygmentify.com/dev/pygmentify",
+      "https://lambda.pygmentify.com/dev/pygmentify",
       {
         method: "post",
         mode: "cors",
