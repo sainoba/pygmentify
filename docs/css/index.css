@@ -18,3 +18,15 @@
 #code2_wrapper .CodeMirror-gutters {
   background-color: #d0d0d0;
 }
+
+#preview-wrapper {
+  background-color: #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.highlight {
+  padding: 5px;
+  box-sizing: border-box;
+}

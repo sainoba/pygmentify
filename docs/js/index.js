@@ -44,6 +44,8 @@ $(document).ready(function() {
       })
       .then(function(data) {
         editor2.setValue(data["code"]);
+        $("#preview-wrapper").html(data["code"]);
+        $("#html_formatted_pills .nav-link").removeClass("disabled");
       })
       .catch(function(error) {
         $("#pygmentify-btn").prop("disabled", false);
@@ -60,4 +62,9 @@ $(document).ready(function() {
     );
   });
   $("#language-select").selectpicker();
+  $("#pygments-css-selector").selectpicker();
 });
+
+function updatePygmentsCss(selectedCss) {
+  $("#selected-pygment-css").attr("href", "./css/pygments-css/" + selectedCss.value);
+}
