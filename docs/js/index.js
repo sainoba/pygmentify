@@ -25,7 +25,6 @@ $(document).ready(function() {
       code: code,
       formatter: "html"
     };
-    console.log("language", language, JSON.stringify(data));
     fetch(
       "https://lambda.pygmentify.com/dev/pygmentify",
       {
@@ -37,7 +36,6 @@ $(document).ready(function() {
       .then(function(response) {
         $("#pygmentify-btn").prop("disabled", false);
         if (!response.ok) {
-          console.log("Response:", response.json());
           throw Error(response.statusText);
         }
         return response.json();
@@ -51,8 +49,6 @@ $(document).ready(function() {
         $("#pygmentify-btn").prop("disabled", false);
         console.log(error);
       });
-
-    console.log(code);
   });
 
   $.each(pygments_languages, function(idx, obj) {
