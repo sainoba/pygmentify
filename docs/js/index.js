@@ -27,7 +27,7 @@ $(document).ready(function() {
     };
     console.log("language", language, JSON.stringify(data));
     fetch(
-      "https://bpgyqf62t4.execute-api.us-east-1.amazonaws.com/dev/pygmentify",
+      "https://labmda.pygmentify.com/dev/pygmentify",
       {
         method: "post",
         mode: "cors",
