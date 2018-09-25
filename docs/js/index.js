@@ -17,7 +17,9 @@ $(document).ready(function() {
   });
 
   $("#pygmentify-btn").on("click", function() {
-    $("#pygmentify-btn").prop("disabled", true);
+    // $("#pygmentify-btn").prop("disabled", true);
+    $("#pygmentify-btn").addClass("disabled");
+    showCover("#step-3 .cover");
     const code = editor.getValue();
     const language = $("#language-select").val();
     const data = {
@@ -25,16 +27,14 @@ $(document).ready(function() {
       code: code,
       formatter: "html"
     };
-    fetch(
-      "https://lambda.pygmentify.com/dev/pygmentify",
-      {
-        method: "post",
-        mode: "cors",
-        body: JSON.stringify(data)
-      }
-    )
+    fetch("https://lambda.pygmentify.com/dev/pygmentify", {
+      method: "post",
+      mode: "cors",
+      body: JSON.stringify(data)
+    })
       .then(function(response) {
-        $("#pygmentify-btn").prop("disabled", false);
+        // $("#pygmentify-btn").prop("disabled", false);
+        $("#pygmentify-btn").removeClass("disabled");
         if (!response.ok) {
           throw Error(response.statusText);
         }
@@ -44,9 +44,12 @@ $(document).ready(function() {
         editor2.setValue(data["code"]);
         $("#preview-wrapper").html(data["code"]);
         $("#html_formatted_pills .nav-link").removeClass("disabled");
+        hideCover("#step-3 .cover");
       })
       .catch(function(error) {
-        $("#pygmentify-btn").prop("disabled", false);
+        // $("#pygmentify-btn").prop("disabled", false);
+        $("#pygmentify-btn").removeClass("disabled");
+        hideCover("#step-3 .cover");
         console.log(error);
       });
   });
@@ -59,8 +62,30 @@ $(document).ready(function() {
   });
   $("#language-select").selectpicker();
   $("#pygments-css-selector").selectpicker();
+
+  $('a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+    editor2.refresh();
+  });
+
 });
 
 function updatePygmentsCss(selectedCss) {
-  $("#selected-pygment-css").attr("href", "./css/pygments-css/" + selectedCss.value);
+  $("#selected-pygment-css").attr(
+    "href",
+    "./css/pygments-css/" + selectedCss.value
+  );
+}
+
+function hideCover(selector) {
+  $(selector).css({
+    "background-color": "rgba(0,0,0,0)",
+    "pointer-events": "none"
+  });
+}
+
+function showCover(selector) {
+  $(selector).css({
+    "background-color": "rgba(0,0,0,.5)",
+    "pointer-events": "auto"
+  });
 }

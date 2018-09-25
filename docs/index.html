@@ -98,8 +98,8 @@
   </div>
   <div class="main main-raised">
     <div class="container">
-      <div class="section">
-        <div class="row">
+      <div class="row">
+        <div id="step-1" class="step section col-12 row">
           <div class="col-12">
             <p>
               <h3>Welcome</h3>
@@ -119,9 +119,17 @@ def dummy_method(thing):
             </div>
             <hr>
           </div>
-          <div class="col-12 text-info">Step 2: Select the language your code is written on, and click "Pygmentify"</div>
+        </div>
+        <div id="step-2" class="step section col-12 row">
+
+          <div class="col-12">
+            <h5 class="text-info">
+              Step 2: Select the language your code is written on, and click "Pygmentify"
+            </h5>
+          </div>
           <div class="col-5">
             <select id="language-select" class="form-control" data-style="btn-primary" data-live-search="true"
+              data-size="7">
               data-width="auto">
             </select>
           </div>
@@ -133,58 +141,60 @@ def dummy_method(thing):
           </div>
           <div class="col-12">
             <hr>
-            <div class="text-info">Step 3: Copy your formmated code</div>
-            <div class="row">
-              <div class="col-md-2">
-                <ul id="html_formatted_pills" class="nav nav-pills nav-pills-icons flex-column" role="tablist">
-                  <!--
-                          color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                      -->
-                  <li class="nav-item">
-                    <a class="nav-link active disabled" href="#dashboard-2" role="tab" data-toggle="tab">
-                      <i class="material-icons">code</i>
-                      Html
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#schedule-2" role="tab" data-toggle="tab">
-                      <i class="material-icons">insert_photo</i>
-                      CSS Styled
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-9">
-                <div class="tab-content">
-                  <div class="tab-pane active" id="dashboard-2">
-                    <div id="code2_wrapper">
-                      <textarea id="code2" name="code2"></textarea>
-                    </div>
+          </div>
+        </div>
+        <div id="step-3" class="step section col-12 row">
+          <div class="cover"></div>
+          <div class="col-12">
+            <h5 class="text-info">Step 3: Copy your formmated code</h5>
+          </div>
+          <div class="col-12 row">
+            <div class="col-md-2">
+              <ul id="html_formatted_pills" class="nav nav-pills nav-pills-icons flex-column" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active disabled" href="#dashboard-2" role="tab" data-toggle="tab">
+                    <i class="material-icons">code</i>
+                    Html
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#schedule-2" role="tab" data-toggle="tab">
+                    <i class="material-icons">insert_photo</i>
+                    CSS Styled
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-9">
+              <div class="tab-content">
+                <div class="tab-pane active" id="dashboard-2">
+                  <div id="code2_wrapper">
+                    <textarea id="code2" name="code2"></textarea>
                   </div>
-                  <div class="tab-pane" id="schedule-2">
-                    <label for="pygments-css-selector">Style</label>
-                    <select name="pygments-css" id="pygments-css-selector" onchange="updatePygmentsCss(this);">
-                      <option value="default.css" selected>Default</option>
-                      <option value="autumn.css">Autumn</option>
-                      <option value="borland.css">Borland</option>
-                      <option value="bw.css">Bw</option>
-                      <option value="colorful.css">Colorful</option>
-                      <option value="emacs.css">Emacs</option>
-                      <option value="friendly.css">Friendly</option>
-                      <option value="fruity.css">Fruity</option>
-                      <option value="manni.css">Manni</option>
-                      <option value="monokai.css">Monokai</option>
-                      <option value="murphy.css">Murphy</option>
-                      <option value="native.css">Native</option>
-                      <option value="pastie.css">Pastie</option>
-                      <option value="perldoc.css">Perldoc</option>
-                      <option value="tango.css">Tango</option>
-                      <option value="trac.css">Trac</option>
-                      <option value="vim.css">Vim</option>
-                      <option value="vs.css">Vs</option>
-                    </select>
-                    <div id="preview-wrapper"></div>
-                  </div>
+                </div>
+                <div class="tab-pane" id="schedule-2">
+                  <label for="pygments-css-selector">Style</label>
+                  <select name="pygments-css" id="pygments-css-selector" onchange="updatePygmentsCss(this);" data-size="7">
+                    <option value="default.css" selected>Default</option>
+                    <option value="autumn.css">Autumn</option>
+                    <option value="borland.css">Borland</option>
+                    <option value="bw.css">Bw</option>
+                    <option value="colorful.css">Colorful</option>
+                    <option value="emacs.css">Emacs</option>
+                    <option value="friendly.css">Friendly</option>
+                    <option value="fruity.css">Fruity</option>
+                    <option value="manni.css">Manni</option>
+                    <option value="monokai.css">Monokai</option>
+                    <option value="murphy.css">Murphy</option>
+                    <option value="native.css">Native</option>
+                    <option value="pastie.css">Pastie</option>
+                    <option value="perldoc.css">Perldoc</option>
+                    <option value="tango.css">Tango</option>
+                    <option value="trac.css">Trac</option>
+                    <option value="vim.css">Vim</option>
+                    <option value="vs.css">Vs</option>
+                  </select>
+                  <div id="preview-wrapper"></div>
                 </div>
               </div>
             </div>
@@ -206,6 +216,10 @@ def dummy_method(thing):
             <h6>How much can I use Pygmentify?</h6>
             Pygmentify is intented for personal use only. Anyone abusing the page will be blocked.<br>
             So don't spam it please :)
+          </li>
+          <li>
+            <h6>Do you store my code?</h6>
+            Nope, not a single bit of code is being stored.
           </li>
         </ul>
       </div>
@@ -381,7 +395,6 @@ def dummy_method(thing):
         </div>
       </div>
     </div> -->
-  </div>
   </div>
   <footer class="footer footer-default">
     <div class="container">
